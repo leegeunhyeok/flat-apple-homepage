@@ -1,3 +1,5 @@
+@import './mixins';
+
 .App {
   text-align: center;
 
@@ -23,6 +25,10 @@
 
   &-link {
     color: #61dafb;
+
+    @include screen-size(md) {
+      color: red;
+    }
   }
 }
 
