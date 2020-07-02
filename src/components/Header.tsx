@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import logo from '../assets/logo.svg';
 import './Header.scss';
 
+import Button from './Button';
+
 const MENUS = [
   'Menu 1',
   'Menu 2',
@@ -28,9 +30,10 @@ function Header() {
             >{menu}</li>
           )}
         </ul>
+        <Button>View Source</Button>
       </div>
     </header>
-  )
+  );
 }
 
 export default Header;
