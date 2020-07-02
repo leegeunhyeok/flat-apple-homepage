@@ -1,0 +1,54 @@
+@import '../styles/common';
+
+$header-height: 5rem;
+
+@include theme() {
+  .Header {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $header-height;
+    padding: 0 1.6rem;
+    text-align: center;
+    background-color: rgba(t('background'), .5);
+    -webkit-backdrop-filter: blur(2px);
+            backdrop-filter: blur(2px);
+
+    &-logo {
+      cursor: pointer;
+
+      img {
+        display: block;
+        float: left;
+        height: $header-height * 0.5;
+        -webkit-filter: t('iconFilter');
+                filter: t('iconFilter');
+      }
+
+      &::after {
+        content: 'Apple';
+        margin-left: .75rem;
+        color: t('textPrimary');
+        line-height: $header-height * 0.55;
+        font-size: $header-height * 0.4;
+        font-weight: bold;
+      }
+    }
+
+    &-menu {
+      ul {
+        margin: 0;
+
+        li {
+          float: left;
+          list-style: none;
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+}
