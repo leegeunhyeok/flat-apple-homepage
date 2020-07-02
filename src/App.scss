@@ -1,31 +1,27 @@
-@import './mixins';
+@import './styles/common';
 
-.App {
-  text-align: center;
-
-  &-logo {
-    height: 40vmin;
-    pointer-events: none;
-
-    @media (prefers-reduced-motion: no-preference) {
-      animation: App-logo-spin infinite 20s linear;
-    }
-  }
-
-  &-link {
-    color: #61dafb;
-
-    @include screen-size(md) {
-      color: red;
-    }
-  }
+* {
+  box-sizing: border-box;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+html, body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "-apple-system", "BlinkMacSystemFont","Apple SD Gothic Neo",
+  "Inter", "Spoqa Han Sans", "Segoe UI",
+  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", Sans-Serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@include theme() {
+  .App {
+    text-align: center;
+    background-color: t('background');
   }
 }

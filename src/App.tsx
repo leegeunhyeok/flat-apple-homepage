@@ -1,25 +1,28 @@
 import React from 'react';
-import logo from './assets/logo.svg';
 import './App.scss';
 
 import Header from './components/Header';
 
 function App() {
+  const getTestEl = () => {
+    const style = {
+      display: 'inline-block',
+      width: '200px',
+      height: '200px',
+      marginTop: '1.5rem',
+      backgroundColor: 'dodgerblue'
+    };
+
+    return (
+      <span style={style}/>
+    );
+  };
+
   return (
     <div className="App">
       <Header/>
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>
-        Edit <code>src/App.tsx</code> and save to reload.
-      </p>
-      <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
+      {/* For test */}
+      {getTestEl()}
     </div>
   );
 }
