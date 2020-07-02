@@ -8,7 +8,7 @@ export interface CartState {
 
 const initialState: CartState = {
   products: []
-}
+};
 
 const cartReducer = (state = initialState, action: AddCartAction): CartState => {
   switch (action.type) {
@@ -21,6 +21,6 @@ const cartReducer = (state = initialState, action: AddCartAction): CartState => 
     default:
       return state;
   };
-}
+};
 
 export default cartReducer;
