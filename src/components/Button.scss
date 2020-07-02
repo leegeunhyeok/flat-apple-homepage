@@ -1,0 +1,16 @@
+@import '../styles/common';
+
+.Button {
+  cursor: pointer;
+  outline: none;
+  background-color: $accent;
+  color: $accent-text;
+  border: none;
+  border-radius: 20px;
+  padding: .5rem 1rem;
+  @include transition(background-color);
+
+  &:hover {
+    background-color: darken($accent, 10%);
+  }
+}

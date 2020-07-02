@@ -21,3 +21,8 @@ $media-prefix: (
     @content;
   }
 }
+
+@mixin transition ($target: all) {
+  -webkit-transition: $target .3s;
+          transition: $target .3s;
+}
