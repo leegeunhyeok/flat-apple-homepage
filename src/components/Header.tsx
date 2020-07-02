@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from '../assets/logo.svg';
 import './Header.scss';
 
+const MENUS = [
+  'Menu 1',
+  'Menu 2',
+  'Menu 3'
+];
+
 function Header() {
+  const [ activeMenu, setActiveMenu ] = useState(MENUS[0]);
+
   return (
     <header className="Header">
       <div className="Header-logo">
@@ -10,9 +18,15 @@ function Header() {
       </div>
       <div className="Header-menu">
         <ul>
-          <li>A</li>
-          <li>B</li>
-          <li>C</li>
+          {MENUS.map((menu, index) =>
+            <li
+              className={
+                menu === activeMenu ? 'active' : ''
+              }
+              onClick={() => setActiveMenu(menu)}
+              key={index}
+            >{menu}</li>
+          )}
         </ul>
       </div>
     </header>

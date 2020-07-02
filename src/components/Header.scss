@@ -44,9 +44,14 @@ $header-height: 5rem;
         margin: 0;
 
         li {
+          cursor: pointer;
           float: left;
           list-style: none;
           margin-right: 1rem;
+
+          &.active {
+            color: t('textSecondary');
+          }
         }
       }
     }
