@@ -1,4 +1,4 @@
-@import '../styles/common';
+@import "../styles/common";
 
 $header-height: 5rem;
 
@@ -14,9 +14,9 @@ $header-height: 5rem;
     height: $header-height;
     padding: 0 1.6rem;
     text-align: center;
-    background-color: rgba(t('background'), .8);
+    background-color: rgba(t("background"), 0.8);
     -webkit-backdrop-filter: blur(5px);
-            backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
 
     &-logo {
       cursor: pointer;
@@ -25,14 +25,14 @@ $header-height: 5rem;
         display: block;
         float: left;
         height: $header-height * 0.5;
-        -webkit-filter: t('iconFilter');
-                filter: t('iconFilter');
+        -webkit-filter: t("iconFilter");
+        filter: t("iconFilter");
       }
 
       &::after {
-        content: 'Apple';
-        margin-left: .5rem;
-        color: t('textPrimary');
+        content: "Apple";
+        margin-left: 0.5rem;
+        color: t("textPrimary");
         line-height: $header-height * 0.55;
         font-size: $header-height * 0.4;
         font-weight: bold;
@@ -47,7 +47,7 @@ $header-height: 5rem;
       ul {
         padding: 0;
         margin: 0;
-        margin-right: .4rem;
+        margin-right: 0.4rem;
 
         li {
           cursor: pointer;
@@ -56,7 +56,7 @@ $header-height: 5rem;
           margin-right: 1.5rem;
 
           &.active {
-            color: t('textSecondary');
+            color: t("textSecondary");
           }
         }
       }

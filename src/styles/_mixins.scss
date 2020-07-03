@@ -3,7 +3,7 @@ $media-prefix: (
   sm: 576px,
   md: 768px,
   lg: 992px,
-  xl: 1200px
+  xl: 1200px,
 );
 
 @function get-width($name) {
@@ -11,7 +11,7 @@ $media-prefix: (
   @return if($width != 0, $width, null);
 }
 
-@mixin screen-size ($name) {
+@mixin screen-size($name) {
   $width: get-width($name);
   @if $width {
     @media only screen and (max-width: $width) {
@@ -22,7 +22,7 @@ $media-prefix: (
   }
 }
 
-@mixin transition ($target: all) {
-  -webkit-transition: $target .3s;
-          transition: $target .3s;
+@mixin transition($target: all) {
+  -webkit-transition: $target 0.3s;
+  transition: $target 0.3s;
 }

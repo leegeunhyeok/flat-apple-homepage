@@ -10,17 +10,15 @@ function App() {
       width: '200px',
       height: '200px',
       marginTop: '1.5rem',
-      backgroundColor: 'dodgerblue'
+      backgroundColor: 'dodgerblue',
     };
 
-    return (
-      <span style={style}/>
-    );
+    return <span style={style} />;
   };
 
   return (
     <div className="App">
-      <Header/>
+      <Header />
       {/* For test */}
       {getTestEl()}
     </div>

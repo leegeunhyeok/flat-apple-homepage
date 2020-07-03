@@ -7,7 +7,7 @@
   color: $accent-text;
   border: none;
   border-radius: 20px;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   @include transition(background-color);
 
   &:hover {

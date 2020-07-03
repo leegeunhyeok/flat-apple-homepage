@@ -1,4 +1,4 @@
-$accent: #0071E3;
+$accent: #0071e3;
 $accent-text: #fff;
 
 $light-background: #fff;
@@ -17,7 +17,7 @@ $theme: (
     textSecondary: $light-text-secondary,
     accent: $accent,
     accentText: $accent-text,
-    iconFilter: brightness(0)
+    iconFilter: brightness(0),
   ),
   dark: (
     background: $dark-background,
@@ -25,6 +25,6 @@ $theme: (
     textSecondary: $dark-text-secondary,
     accent: $accent,
     accentText: $accent-text,
-    iconFilter: brightness(1)
-  )
+    iconFilter: brightness(1),
+  ),
 );

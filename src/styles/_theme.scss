@@ -6,7 +6,12 @@
     $map-theme: () !global;
 
     @each $key, $color in $palette {
-      $map-theme: map-merge($map-theme, ($key: $color)) !global;
+      $map-theme: map-merge(
+        $map-theme,
+        (
+          $key: $color,
+        )
+      ) !global;
     }
 
     // Default theme (body tag without class)
