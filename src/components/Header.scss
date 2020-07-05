@@ -51,7 +51,7 @@ $background-opacity: 0.8;
 
       @include screen-size(md) {
         position: absolute;
-        top: 0.75rem;
+        top: 1rem;
         left: 1.5rem;
 
         img {
@@ -59,8 +59,8 @@ $background-opacity: 0.8;
         }
 
         &::after {
-          font-size: map-get($header-height, 'default') * 0.35;
-          line-height: none;
+          font-size: map-get($header-height, 'mobile') * 0.45;
+          line-height: map-get($header-height, 'mobile') * 0.5;
         }
       }
     }
