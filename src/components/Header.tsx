@@ -1,5 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
+import { useSelector } from 'react-redux';
 import classNames from 'classnames';
+import { RootState } from '../store/reducers';
+import { SIZE } from '../values';
+
 import logo from '../assets/logo.svg';
 import './Header.scss';
 
@@ -10,6 +14,12 @@ const MENUS = ['Menu 1', 'Menu 2', 'Menu 3'];
 function Header() {
   const [isMenuOpened, menuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState(MENUS[0]);
+  const width = useSelector((state: RootState) => state.common.width);
+  useLayoutEffect(() => {
+    if (SIZE.md <= width) {
+      menuOpen(false);
+    }
+  }, [width]);
 
   const headerClass = classNames('Header', {
     'open-menu': isMenuOpened,

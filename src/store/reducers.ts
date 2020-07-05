@@ -27,7 +27,8 @@ const commonReducer = (
 };
 
 const rootReducer = combineReducers({
-  commonReducer,
+  common: commonReducer,
 });
 
 export default rootReducer;
+export type RootState = ReturnType<typeof rootReducer>;
