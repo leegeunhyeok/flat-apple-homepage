@@ -110,6 +110,7 @@ $background-opacity: 0.8;
 
         & > li {
           cursor: pointer;
+          position: relative;
           float: left;
           list-style: none;
           margin-right: 1.5rem;
@@ -164,6 +165,19 @@ $background-opacity: 0.8;
 
         .#{$component-name}-menu {
           opacity: 1;
+
+          & > ul {
+            & > li.active::after {
+              content: '';
+              display: block;
+              position: absolute;
+              bottom: -5px;
+              width: 100%;
+              height: 3px;
+              margin-top: 3px;
+              background-color: t('accent');
+            }
+          }
         }
       }
     }
