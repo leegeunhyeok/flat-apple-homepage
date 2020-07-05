@@ -1,9 +1,15 @@
-@import "../styles/common";
+@import '../styles/common';
 
-$header-height: 5rem;
+$component-name: 'Header';
+$header-height: (
+  mobile: 4rem,
+  default: 5rem,
+);
+
+$background-opacity: 0.8;
 
 @include theme() {
-  .Header {
+  .#{$component-name} {
     position: fixed;
     display: flex;
     align-items: center;
@@ -11,12 +17,17 @@ $header-height: 5rem;
     top: 0;
     left: 0;
     width: 100%;
-    height: $header-height;
+    height: map-get($header-height, 'default');
     padding: 0 1.6rem;
     text-align: center;
-    background-color: rgba(t("background"), 0.8);
+    background-color: rgba(t('background'), $background-opacity);
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
+
+    @include screen-size(md) {
+      @include transition(height);
+      height: map-get($header-height, 'mobile');
+    }
 
     &-logo {
       cursor: pointer;
@@ -24,18 +35,64 @@ $header-height: 5rem;
       img {
         display: block;
         float: left;
-        height: $header-height * 0.5;
-        -webkit-filter: t("iconFilter");
-        filter: t("iconFilter");
+        height: map-get($header-height, 'default') * 0.5;
+        -webkit-filter: t('iconFilter');
+        filter: t('iconFilter');
       }
 
       &::after {
-        content: "Apple";
+        content: 'Apple';
         margin-left: 0.5rem;
-        color: t("textPrimary");
-        line-height: $header-height * 0.55;
-        font-size: $header-height * 0.4;
+        color: t('textPrimary');
+        line-height: map-get($header-height, 'default') * 0.55;
+        font-size: map-get($header-height, 'default') * 0.4;
         font-weight: bold;
+      }
+
+      @include screen-size(md) {
+        position: absolute;
+        top: 0.75rem;
+        left: 1.5rem;
+
+        img {
+          height: 2rem;
+        }
+
+        &::after {
+          font-size: map-get($header-height, 'default') * 0.35;
+          line-height: none;
+        }
+      }
+    }
+
+    &-icon {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      visibility: hidden;
+      position: absolute;
+      top: 0;
+      right: 0.5rem;
+      width: map-get($header-height, 'mobile');
+      height: map-get($header-height, 'mobile');
+      padding: 1rem;
+
+      span {
+        display: block;
+        width: 2rem;
+        height: 4px;
+        margin: 2.5px 0;
+        border-radius: 4px;
+        background-color: t('textPrimary');
+      }
+
+      @include screen-size(md) {
+        visibility: visible;
+
+        span {
+          @include transition(transform);
+        }
       }
     }
 
@@ -44,20 +101,69 @@ $header-height: 5rem;
       justify-content: center;
       align-items: center;
 
-      ul {
+      & > ul {
+        display: flex;
+        align-items: center;
         padding: 0;
         margin: 0;
         margin-right: 0.4rem;
 
-        li {
+        & > li {
           cursor: pointer;
           float: left;
           list-style: none;
           margin-right: 1.5rem;
 
           &.active {
-            color: t("textSecondary");
+            color: t('textSecondary');
           }
+        }
+      }
+
+      @include screen-size(md) {
+        margin: 0 auto;
+        padding-top: 1.5rem;
+        opacity: 0;
+        @include transition(opacity);
+
+        & > ul {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          margin: 0 auto;
+          overflow: hidden;
+          height: 100%;
+
+          & > li {
+            display: block;
+            margin: 0;
+            margin-right: 0;
+            margin-bottom: 3rem;
+          }
+        }
+      }
+    }
+
+    // Mobile menu active
+    &.open-menu {
+      @include screen-size(sm) {
+        height: 100vh;
+
+        .#{$component-name}-icon {
+          span {
+            &:nth-child(1) {
+              transform: rotate(45deg) translate(6px, 6px);
+            }
+
+            &:nth-child(2) {
+              transform: rotate(-45deg) translate(4px, -4px);
+            }
+          }
+        }
+
+        .#{$component-name}-menu {
+          opacity: 1;
         }
       }
     }
