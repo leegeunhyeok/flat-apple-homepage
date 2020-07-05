@@ -22,7 +22,7 @@ $media-prefix: (
   }
 }
 
-@mixin transition($target: all) {
-  -webkit-transition: $target 0.3s;
-  transition: $target 0.3s;
+@mixin transition($target: all, $duration: 0.3s, $timing: ease-in-out) {
+  -webkit-transition: $target $duration $timing;
+  transition: $target $duration $timing;
 }

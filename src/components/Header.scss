@@ -100,6 +100,7 @@ $background-opacity: 0.8;
       display: flex;
       justify-content: center;
       align-items: center;
+      color: t('textPrimary');
 
       & > ul {
         display: flex;
@@ -124,8 +125,9 @@ $background-opacity: 0.8;
       @include screen-size(md) {
         margin: 0 auto;
         padding-top: 1.5rem;
-        opacity: 0;
-        @include transition(opacity);
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%);
+        @include transition(transform, 0.5s);
 
         & > ul {
           display: flex;
@@ -148,7 +150,7 @@ $background-opacity: 0.8;
 
     // Mobile menu active
     &.open-menu {
-      @include screen-size(sm) {
+      @include screen-size(md) {
         height: 100vh;
 
         .#{$component-name}-icon {
@@ -164,7 +166,8 @@ $background-opacity: 0.8;
         }
 
         .#{$component-name}-menu {
-          opacity: 1;
+          -webkit-transform: translateY(0);
+          transform: translateY(0);
 
           & > ul {
             & > li.active::after {
