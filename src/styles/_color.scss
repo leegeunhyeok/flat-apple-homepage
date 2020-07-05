@@ -18,6 +18,7 @@ $theme: (
     accent: $accent,
     accentText: $accent-text,
     iconFilter: brightness(0),
+    loading: #ccc,
   ),
   dark: (
     background: $dark-background,
@@ -26,5 +27,6 @@ $theme: (
     accent: $accent,
     accentText: $accent-text,
     iconFilter: brightness(1),
+    loading: #555,
   ),
 );
