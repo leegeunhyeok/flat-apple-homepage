@@ -25,6 +25,22 @@ function App(props: RootProps) {
 
   useEffect(() => {
     setWidth(window.innerWidth);
+
+    // Color theme change detect
+    window
+      .matchMedia('(prefers-color-scheme: dark)')
+      .addEventListener('change', (e) => {
+        document.body.setAttribute('class', e.matches ? 'dark' : 'light');
+      });
+
+    // Init color theme
+    if (
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches
+    ) {
+      document.body.classList.add('dark');
+    }
+
     // eslint-disable-next-line
   }, []);
 
