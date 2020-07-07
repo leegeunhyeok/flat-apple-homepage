@@ -7,6 +7,9 @@ import './App.scss';
 
 import Loading from './components/Loading';
 import Header from './components/Header';
+import Product from './components/Product';
+
+import products from './data';
 
 interface RootProps {
   setWidth: Function;
@@ -15,17 +18,6 @@ interface RootProps {
 function App(props: RootProps) {
   const { setWidth } = props;
   const [loading, setLoadState] = useState(true);
-  const getTestEl = () => {
-    const style = {
-      display: 'inline-block',
-      width: '200px',
-      height: '200px',
-      marginTop: '1.5rem',
-      backgroundColor: 'dodgerblue',
-    };
-
-    return <span style={style} />;
-  };
 
   window.addEventListener('resize', () => {
     setWidth(window.innerWidth);
@@ -39,8 +31,19 @@ function App(props: RootProps) {
   return (
     <div className="App">
       <Header />
-      {/* For test */}
-      {getTestEl()}
+      <div className="App-products">
+        {products.map((data, index) => {
+          return (
+            <Product
+              name={data.name}
+              description={data.description}
+              images={data.images}
+              isNew={data.isNew}
+              key={index}
+            />
+          );
+        })}
+      </div>
       <CSSTransition in={loading} timeout={500} unmountOnExit classNames="fade">
         <Loading onload={() => setLoadState(false)} />
       </CSSTransition>
