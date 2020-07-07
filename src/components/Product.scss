@@ -1,0 +1,83 @@
+@import '../styles/common';
+
+$component-name: 'Product';
+
+@include theme {
+  .#{$component-name} {
+    width: 100%;
+    margin-bottom: 4rem;
+    height: 18rem;
+
+    &:nth-child(odd) {
+      .#{$component-name}-information {
+        float: left;
+      }
+
+      .#{$component-name}-preview {
+        float: right;
+      }
+    }
+
+    &:nth-child(even) {
+      .#{$component-name}-information {
+        float: right;
+      }
+
+      .#{$component-name}-preview {
+        float: left;
+      }
+    }
+
+    &-information {
+      text-align: left;
+
+      span.new {
+        position: relative;
+
+        &::after {
+          content: 'New';
+          position: absolute;
+          color: $new-color;
+          font-weight: 700;
+          top: -1rem;
+        }
+      }
+
+      h2 {
+        margin: 0;
+        font-size: 2rem;
+        font-weight: bold;
+        color: t('textPrimary');
+      }
+
+      p {
+        margin: 0;
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: t('textSecondary');
+      }
+    }
+
+    &-preview {
+      height: 100%;
+
+      &__area {
+        position: relative;
+        height: 100%;
+
+        & > img {
+          height: 100%;
+          display: none;
+
+          &.light {
+            display: t('lightImage');
+          }
+
+          &.dark {
+            display: t('darkImage');
+          }
+        }
+      }
+    }
+  }
+}
