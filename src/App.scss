@@ -27,9 +27,24 @@ body {
 }
 
 @include theme() {
+  #root {
+    background-color: t('background');
+  }
+
   .App {
     text-align: center;
-    background-color: t('background');
+    padding-top: map-get($header-height, 'default');
+
+    @include screen-size(md) {
+      padding-top: map-get($header-height, 'mobile');
+    }
+
+    &-products {
+      width: 80%;
+      max-width: 700px;
+      margin: 0 auto;
+      padding-top: 6rem;
+    }
   }
 }
 

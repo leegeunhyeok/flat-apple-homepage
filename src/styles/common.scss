@@ -1,2 +1,9 @@
+$header-height: (
+  mobile: 4rem,
+  default: 5rem,
+);
+
+$background-opacity: 0.8;
+
 @import 'mixins';
 @import 'theme';

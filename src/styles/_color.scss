@@ -9,6 +9,8 @@ $dark-background: #131218;
 $dark-text-primary: #fff;
 $dark-text-secondary: #888;
 
+$new-color: #f56300;
+
 $default-theme: 'light';
 $theme: (
   light: (
@@ -19,6 +21,8 @@ $theme: (
     accentText: $accent-text,
     iconFilter: brightness(0),
     loading: #ccc,
+    lightImage: initial,
+    darkImage: none,
   ),
   dark: (
     background: $dark-background,
@@ -28,5 +32,7 @@ $theme: (
     accentText: $accent-text,
     iconFilter: brightness(1),
     loading: #555,
+    lightImage: none,
+    darkImage: initial,
   ),
 );
