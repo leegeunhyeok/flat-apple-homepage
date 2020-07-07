@@ -15,6 +15,7 @@ $component-name: 'Loading';
     height: 100%;
     padding: 30vh 0;
     background-color: t('background');
+    z-index: 9999;
 
     &-logo {
       margin: 0 auto;

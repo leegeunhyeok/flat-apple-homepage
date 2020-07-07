@@ -1,12 +1,6 @@
 @import '../styles/common';
 
 $component-name: 'Header';
-$header-height: (
-  mobile: 4rem,
-  default: 5rem,
-);
-
-$background-opacity: 0.8;
 
 @include theme() {
   .#{$component-name} {
@@ -23,6 +17,7 @@ $background-opacity: 0.8;
     background-color: rgba(t('background'), $background-opacity);
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
+    z-index: 9998;
 
     @include screen-size(md) {
       @include transition(height);
