@@ -8,9 +8,25 @@ $component-name: 'Product';
     margin-bottom: 4rem;
     height: 18rem;
 
+    @include screen-size(md) {
+      text-align: center;
+      height: auto;
+    }
+
     &:nth-child(odd) {
       .#{$component-name}-information {
         float: left;
+
+        &__bottom {
+          text-align: left;
+
+          span {
+            &::after {
+              content: '>';
+              margin-left: 0.4rem;
+            }
+          }
+        }
       }
 
       .#{$component-name}-preview {
@@ -21,6 +37,17 @@ $component-name: 'Product';
     &:nth-child(even) {
       .#{$component-name}-information {
         float: right;
+
+        &__bottom {
+          text-align: right;
+
+          span {
+            &::before {
+              content: '<';
+              margin-right: 0.4rem;
+            }
+          }
+        }
       }
 
       .#{$component-name}-preview {
@@ -28,42 +55,14 @@ $component-name: 'Product';
       }
     }
 
-    &-information {
-      text-align: left;
-
-      span.new {
-        position: relative;
-
-        &::after {
-          content: 'New';
-          position: absolute;
-          color: $new-color;
-          font-weight: 700;
-          top: -1rem;
-        }
-      }
-
-      h2 {
-        margin: 0;
-        font-size: 2rem;
-        font-weight: bold;
-        color: t('textPrimary');
-      }
-
-      p {
-        margin: 0;
-        font-size: 1.4rem;
-        font-weight: 600;
-        color: t('textSecondary');
-      }
-    }
-
     &-preview {
+      $mobile-max-size: 350px;
       height: 100%;
 
       &__area {
         position: relative;
         height: 100%;
+        margin: 0 auto;
 
         & > img {
           height: 100%;
@@ -76,7 +75,97 @@ $component-name: 'Product';
           &.dark {
             display: t('darkImage');
           }
+
+          @include screen-size(md) {
+            height: auto;
+            width: 80%;
+            max-height: $mobile-max-size;
+          }
         }
+      }
+
+      @include screen-size(md) {
+        float: none !important;
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    &-information {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: left;
+      height: 100%;
+      padding: 2rem 0;
+
+      &__top {
+        span.new {
+          position: relative;
+
+          &::after {
+            content: 'New';
+            position: absolute;
+            color: $new-color;
+            font-weight: 700;
+            top: -1rem;
+            left: 50%;
+
+            @include screen-size(md) {
+              -webkit-transform: translateX(-50%);
+              transform: translateX(-50%);
+            }
+          }
+        }
+
+        h2 {
+          margin: 0;
+          font-size: 2rem;
+          font-weight: bold;
+          color: t('textPrimary');
+        }
+
+        p {
+          margin: 0;
+          font-size: 1.4rem;
+          font-weight: 600;
+          color: t('textSecondary');
+        }
+
+        @include screen-size(md) {
+          margin-bottom: 3rem;
+        }
+      }
+
+      &__bottom {
+        span {
+          cursor: pointer;
+          display: block;
+          margin-top: 0.5rem;
+          color: $accent;
+
+          @include screen-size(md) {
+            &::before {
+              content: '' !important;
+              margin-right: 0 !important;
+            }
+
+            &::after {
+              content: '>';
+              margin-left: 0.4rem;
+            }
+          }
+        }
+
+        @include screen-size(md) {
+          text-align: center !important;
+        }
+      }
+
+      @include screen-size(md) {
+        float: none !important;
+        text-align: center;
+        height: auto;
       }
     }
   }
