@@ -1,6 +1,8 @@
 @import '../styles/common';
 
-.Button {
+$component-name: 'Button';
+
+.#{$component-name} {
   cursor: pointer;
   outline: none;
   background-color: $accent;
@@ -8,9 +10,20 @@
   border: none;
   border-radius: 20px;
   padding: 0.5rem 1rem;
-  @include transition(background-color);
+  @include transition(background-color, 0.2s);
+  @include screen-size(md) {
+    font-size: 0.85rem;
+  }
 
   &:hover {
     background-color: darken($accent, 10%);
+  }
+
+  &--icon {
+    @extend .#{$component-name};
+    background-size: 1rem;
+    background-repeat: no-repeat;
+    background-position: 0.8rem -0.25rem;
+    padding-left: 2.75rem;
   }
 }

@@ -12,7 +12,10 @@ const Button: React.FunctionComponent<ButtonProps> = (props) => {
   };
 
   return (
-    <button className="Button" style={icon ? style : {}}>
+    <button
+      className={icon ? 'Button--icon' : 'Button'}
+      style={icon ? style : {}}
+    >
       {children}
     </button>
   );
