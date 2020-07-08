@@ -1,0 +1,15 @@
+$component-name: 'Icon';
+
+.#{$component-name} {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  min-width: 4rem;
+  min-height: 4rem;
+
+  &--small,
+  &--medium,
+  &--large {
+    @extend .#{$component-name};
+  }
+}

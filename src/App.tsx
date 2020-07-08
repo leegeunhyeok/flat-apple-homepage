@@ -3,11 +3,18 @@ import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
 import { SetWidthAction, setWidth } from './store/actions';
+import airpods from './assets/icons/airpods.svg';
+import watch from './assets/icons/watch.svg';
+import iphone from './assets/icons/iphone.svg';
+import ipad from './assets/icons/ipad.svg';
+import mac from './assets/icons/mac.svg';
+import macPro from './assets/icons/mac-pro.svg';
 import './App.scss';
 
 import Loading from './components/Loading';
 import Header from './components/Header';
 import Product from './components/Product';
+import Icon from './components/Icon';
 
 import products from './data';
 
@@ -59,6 +66,15 @@ function App(props: RootProps) {
             />
           );
         })}
+      </div>
+      <h1 className="App-title">Other Products</h1>
+      <div className="App-other">
+        <Icon icon={airpods} size="medium" />
+        <Icon icon={watch} size="small" />
+        <Icon icon={iphone} size="large" />
+        <Icon icon={ipad} size="large" />
+        <Icon icon={mac} size="large" />
+        <Icon icon={macPro} size="large" />
       </div>
       <CSSTransition in={loading} timeout={500} unmountOnExit classNames="fade">
         <Loading onload={() => setLoadState(false)} />
