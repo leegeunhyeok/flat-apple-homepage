@@ -4,12 +4,6 @@ $component-name: 'Icon';
   display: inline-block;
   background-repeat: no-repeat;
   background-position: bottom;
-  min-width: 4rem;
-  min-height: 4rem;
-
-  &--small,
-  &--medium,
-  &--large {
-    @extend .#{$component-name};
-  }
+  width: 72px;
+  height: 72px;
 }

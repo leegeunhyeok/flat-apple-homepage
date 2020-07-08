@@ -8,9 +8,10 @@ export interface IconProps {
 }
 
 const SIZE: { [key: string]: number } = {
-  small: 20,
-  medium: 28,
-  large: 36,
+  small: 24,
+  medium: 36,
+  large: 48,
+  extra: 60,
 };
 
 const Icon: React.FunctionComponent<IconProps> = ({
@@ -22,14 +23,12 @@ const Icon: React.FunctionComponent<IconProps> = ({
 
   return (
     <span
-      className={`Icon--${size}`}
+      className="Icon"
       style={{
         backgroundImage: `url(${icon})`,
         ...(size
           ? {
               backgroundSize: `${px}px`,
-              width: `${px}px`,
-              height: `${px}px`,
             }
           : null),
       }}

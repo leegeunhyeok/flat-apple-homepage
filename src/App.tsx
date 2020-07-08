@@ -73,7 +73,7 @@ function App(props: RootProps) {
         <Icon icon={watch} size="small" />
         <Icon icon={iphone} size="large" />
         <Icon icon={ipad} size="large" />
-        <Icon icon={mac} size="large" />
+        <Icon icon={mac} size="extra" />
         <Icon icon={macPro} size="large" />
       </div>
       <CSSTransition in={loading} timeout={500} unmountOnExit classNames="fade">
